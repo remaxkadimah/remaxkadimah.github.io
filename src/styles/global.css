@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "@fontsource-variable/archivo/wdth.css";
+
+@theme {
+  --font-sans: "Archivo Variable", system-ui, sans-serif;
+  --color-marinho: #001f4e;
+  --color-marinho-claro: #0b2d63;
+  --color-linha: #6a82ad;
+  --color-branco: #ffffff;
+  --color-nevoa: #b9c6dc;
+  --color-vermelho: #e10600;
+  --color-azul: #004bfd;
+}
+
+html { background: var(--color-marinho); }
+body { font-stretch: 100%; }
+
+:focus-visible {
+  outline: 3px solid var(--color-branco);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

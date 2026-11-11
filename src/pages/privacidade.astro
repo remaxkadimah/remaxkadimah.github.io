@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Política de privacidade | RE/MAX Kadimah</title>
+    <meta name="description" content="Como a RE/MAX Kadimah trata os dados de quem visita esta página." />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/png" href={base + "favicon.png"} />
+  </head>
+  <body class="min-h-dvh bg-marinho font-sans text-branco antialiased">
+    <main class="mx-auto w-full max-w-md px-6 py-10 leading-relaxed">
+      <a href={base} class="text-nevoa underline decoration-linha underline-offset-4 hover:decoration-branco">Voltar</a>
+      <h1 class="mt-8 text-3xl font-extrabold tracking-tight" style="font-stretch: 112%">Política de privacidade</h1>
+
+      <p class="mt-6 text-nevoa">
+        Esta página é da Imobiliária RE/MAX Kadimah, CRECI 42090-J, R. Cardoso de Almeida, 788, Sala 142,
+        Perdizes, São Paulo - SP. Somos responsáveis pelos dados tratados aqui.
+      </p>
+
+      <h2 class="mt-8 text-lg font-semibold">O que coletamos</h2>
+      <p class="mt-2 text-nevoa">
+        Esta página não tem formulário, não usa cookies e não usa ferramentas de rastreamento ou anúncios. A
+        hospedagem registra dados técnicos de acesso, como endereço IP e navegador, para segurança e
+        funcionamento do site.
+      </p>
+
+      <h2 class="mt-8 text-lg font-semibold">WhatsApp</h2>
+      <p class="mt-2 text-nevoa">
+        Se você nos chamar no WhatsApp, usamos seu nome, telefone e o que você contar só para atender seu
+        pedido sobre imóveis. Não vendemos nem repassamos seus dados para fins de propaganda.
+      </p>
+
+      <h2 class="mt-8 text-lg font-semibold">Seus direitos</h2>
+      <p class="mt-2 text-nevoa">
+        Pela LGPD, você pode pedir acesso, correção ou exclusão dos seus dados. Fale com a gente pelo WhatsApp
+        (11) 98983-3309.
+      </p>
+    </main>
+  </body>
+</html>

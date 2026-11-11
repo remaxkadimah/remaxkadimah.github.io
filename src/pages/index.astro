@@ -1,0 +1,171 @@
+---
+import '../styles/global.css';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+import { MessageCircle, Globe, MapPin, Clock, ArrowUpRight } from '@lucide/astro';
+
+const whatsapp =
+  'https://api.whatsapp.com/send/?phone=5511989833309&text=' +
+  encodeURIComponent('Olá! Vim pelo Instagram. Quero comprar / vender / alugar um imóvel.');
+const site = 'https://www.remax.com.br/en/offices/sao-paulo/sao-paulo-perdizes/remax-kadimah/60256';
+const endereco = 'R. Cardoso de Almeida, 788 - Sl 142 - Perdizes, São Paulo - SP, 05013-001';
+const mapa = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(endereco);
+
+const titulo = 'RE/MAX Kadimah | Imobiliária em Perdizes, São Paulo';
+const descricao =
+  'Compre, venda ou alugue seu imóvel com a RE/MAX Kadimah. Fale no WhatsApp ou visite nosso escritório em Perdizes.';
+const ogImage = new URL(base + 'img/og-remax-kadimah.jpg', Astro.site).href;
+const canonical = new URL(base, Astro.site).href;
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={descricao} />
+    <meta name="theme-color" content="#001f4e" />
+    <link rel="icon" type="image/png" href={base + "favicon.png"} />
+    <link rel="apple-touch-icon" href={base + "apple-touch-icon.png"} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo da Imobiliária RE/MAX Kadimah" />
+    <meta property="og:site_name" content="RE/MAX Kadimah" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descricao} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+
+  <body class="min-h-dvh bg-marinho font-sans text-branco antialiased">
+    <main class="mx-auto flex min-h-dvh w-full max-w-md flex-col px-6 pt-8 pb-8">
+      <!-- Faixa com as cores do balão RE/MAX -->
+      <div class="flex h-1.5 w-16 overflow-hidden rounded-full" aria-hidden="true">
+        <span class="flex-1 bg-vermelho"></span>
+        <span class="flex-1 bg-branco"></span>
+        <span class="flex-1 bg-azul"></span>
+      </div>
+
+      <header class="mt-7">
+        <img
+          src={base + "img/logo-remax-kadimah.webp"}
+          alt="Imobiliária RE/MAX Kadimah, CRECI 42090-J"
+          width="890"
+          height="460"
+          class="w-44"
+          fetchpriority="high"
+        />
+        <h1
+          class="mt-8 text-[2.25rem] leading-[0.95] font-extrabold tracking-tight text-balance uppercase sm:text-[2.75rem]"
+          style="font-stretch: 112%"
+        >
+          Seu próximo imóvel começa numa conversa.
+        </h1>
+        <p class="mt-4 max-w-sm text-lg leading-snug text-pretty text-nevoa">
+          Vai comprar, vender ou alugar em São Paulo? Mande uma mensagem e um corretor responde no WhatsApp.
+        </p>
+      </header>
+
+      <nav aria-label="Links principais" class="mt-8">
+        <a
+          href={whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-center justify-between gap-4 rounded-2xl bg-branco px-5 py-5 text-marinho transition-transform active:scale-[0.98]"
+        >
+          <span class="flex items-center gap-3">
+            <MessageCircle size={28} strokeWidth={2.25} aria-hidden="true" />
+            <span>
+              <span class="block text-xl leading-tight font-bold">Falar no WhatsApp</span>
+              <span class="block text-sm text-marinho/70">(11) 98983-3309</span>
+            </span>
+          </span>
+          <ArrowUpRight
+            size={24}
+            aria-hidden="true"
+            class="shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </a>
+
+        <a
+          href={site}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group mt-3 flex items-center justify-between gap-4 rounded-2xl border border-linha px-5 py-5 transition-colors hover:border-branco"
+        >
+          <span class="flex items-center gap-4">
+            <Globe size={22} aria-hidden="true" />
+            <span class="text-lg font-semibold">Ver imóveis no site</span>
+          </span>
+          <ArrowUpRight size={20} aria-hidden="true" class="shrink-0 text-nevoa group-hover:text-branco" />
+        </a>
+      </nav>
+
+      <section aria-labelledby="visite" class="mt-16 border-t border-linha pt-8">
+        <h2 id="visite" class="text-sm font-semibold text-nevoa">Visite o escritório</h2>
+
+        <a
+          href={mapa}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group mt-4 flex items-start gap-4"
+        >
+          <MapPin size={22} aria-hidden="true" class="mt-1 shrink-0 text-vermelho" />
+          <span>
+            <span class="block text-xl leading-snug font-semibold">
+              R. Cardoso de Almeida, 788<br />Sala 142 · Perdizes
+            </span>
+            <span class="mt-1 block text-nevoa">São Paulo - SP, 05013-001</span>
+            <span
+              class="mt-3 inline-flex items-center gap-1 font-semibold underline decoration-linha underline-offset-4 group-hover:decoration-branco"
+            >
+              Como chegar
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </span>
+          </span>
+        </a>
+
+        <div class="mt-8 flex items-start gap-4">
+          <Clock size={22} aria-hidden="true" class="mt-1 shrink-0 text-nevoa" />
+          <div>
+            <p class="text-xl font-semibold">Seg a sex, das 9h às 18h</p>
+            <p class="mt-1 flex items-center gap-2 text-nevoa"><span id="status-ponto" class="hidden size-2 rounded-full" aria-hidden="true"></span><span id="status">Fora do horário, mande sua mensagem no WhatsApp.</span></p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="mt-auto pt-16 text-sm text-nevoa">
+        <p>Imobiliária RE/MAX Kadimah · CRECI 42090-J</p>
+        <p class="mt-2"><a href={base + "privacidade/"} class="underline decoration-linha underline-offset-4 hover:decoration-branco">Política de privacidade</a></p>
+      </footer>
+    </main>
+
+    <script is:inline>
+      (function () {
+        var el = document.getElementById('status');
+        if (!el) return;
+        var partes = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'America/Sao_Paulo',
+          weekday: 'short',
+          hour: 'numeric',
+          hourCycle: 'h23',
+        }).formatToParts(new Date());
+        var dia = partes.find(function (p) { return p.type === 'weekday'; }).value;
+        var hora = Number(partes.find(function (p) { return p.type === 'hour'; }).value);
+        var util = ['Sat', 'Sun'].indexOf(dia) === -1;
+        var aberto = util && hora >= 9 && hora < 18;
+        el.textContent = aberto
+          ? 'Aberto agora. Chame no WhatsApp.'
+          : 'Fechado agora. Deixe sua mensagem no WhatsApp.';
+        var ponto = document.getElementById('status-ponto');
+        if (ponto) ponto.className = 'size-2 rounded-full ' + (aberto ? 'bg-branco' : 'bg-vermelho');
+      })();
+    </script>
+  </body>
+</html>
